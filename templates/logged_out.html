@@ -1,0 +1,29 @@
+{% extends 'templates/base.html' %}
+
+{% block title %}
+You are not Logged In
+{% endblock %}
+
+{% block content %}
+
+  <h1>
+    You are not logged in
+  </h1>
+
+
+  <a href="{% url 'signup' %}">
+    <button>
+    Sign Up
+    </button>
+  </a>
+ <a href="{% url 'login' %}">
+    <button>
+    LogIn
+    </button>
+  </a>
+
+<script>
+    setInterval(function(){ alert("Please Log in to see the list"); }, 1000*3*60);
+</script>
+
+{% endblock %}

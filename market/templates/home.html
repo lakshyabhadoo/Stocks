@@ -1,0 +1,50 @@
+{% extends 'templates/base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+    <form type="get" action="." style="margin: 0">
+    <input  id="search_box" type="text" name="search_query"  placeholder="Search..." >
+    <button id="search_submit" type="submit" >Submit</button>
+</form>
+
+  <h1>
+    Hello {{ username }}
+
+  </h1>
+<a href="{% url 'logout' %}">
+    <button>
+    LogOut
+    </button>
+  </a>
+
+<a href="{% url 'lc_stock' %}">
+    <button>
+    Create Stock
+    </button>
+  </a>
+<ul>
+{% for stock in stocks %}
+    <li>
+        <a href="{% url 'viewstock' stock.slug %}">
+            {{stock.title}}
+        </a>
+        </li>
+{% endfor %}
+    </ul>
+
+{% if search_query %}
+    <a href="{% url 'home' %}?start_index={{start_index}}&to_load={{to_load}}&search_query={{search_query}}">
+        {% else %}
+        <a href="{% url 'home' %}?start_index={{start_index}}&to_load={{to_load}}">
+            {% endif %}
+        <button>Load More</button>
+    </a>
+<a href="{% url 'home' %}">
+        <button>Go To Home</button>
+    </a>
+
+{% endblock %}

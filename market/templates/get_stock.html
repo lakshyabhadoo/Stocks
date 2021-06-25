@@ -1,0 +1,18 @@
+{% extends 'templates/base.html' %}
+
+{% block title %}
+Signup
+{% endblock %}
+
+{% block content %}
+  <h2>{{ stock.title }}</h2>
+    <p>
+      <a href="{{stock.video_link}}" target="_blank">Link: {{stock.video_link}}
+      </a>
+    </p>
+
+  <p>
+    Description: {{ stock.description }}
+  </p>
+
+{% endblock %}
